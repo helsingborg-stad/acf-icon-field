@@ -1,0 +1,57 @@
+{
+    "scripts": {
+        "test": "jest --coverage --maxWorkers=$(node -e \"console.log(Math.max(1, Math.floor(require('os').cpus().length / 2)))\")",
+        "dev": "vite",
+        "build": "npm run generate-material-symbols-enum && vite build",
+        "generate-material-symbols-enum": "ts-node generateMaterialSymbols.ts",
+        "build:dev": "vite build --mode development",
+        "watch": "vite build --watch --mode development"
+    },
+    "browserslist": [
+        "> 1%",
+        "not dead"
+    ],
+    "files": [
+        "dist/"
+    ],
+    "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "clean-webpack-plugin": "^4.0.0",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.6.0",
+        "css-minimizer-webpack-plugin": "^3.4.1",
+        "import-glob-loader": "^1.1.0",
+        "mini-css-extract-plugin": "^2.5.3",
+        "postcss-loader": "^6.2.1",
+        "sass": "^1.49.7",
+        "sass-loader": "^12.4.0",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.3.3",
+        "webpack": "^5.68.0",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-config-utils": "^2.3.1",
+        "webpack-manifest-plugin": "^4.1.1",
+        "webpack-notifier": "^1.15.0",
+        "webpack-remove-empty-scripts": "^0.7.3"
+    },
+    "browser": {
+        "child_process": false
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ]
+    },
+    "version": "0.79.11",
+    "dependencies": {
+        "material-symbols": "^0.34.1",
+        "ts-morph": "^26.0.0",
+        "ts-node": "^10.9.2",
+        "vite-config-factory": "^1.0.1"
+    }
+}
