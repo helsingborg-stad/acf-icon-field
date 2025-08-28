@@ -51,6 +51,14 @@ function addAcfIconField() {
  * Enqueue scripts and styles in the admin
  */
 function loadScriptsAndStyle() {
-}
+    wp_register_script_module(
+        'acf-icon-field-initializer',
+        ACFICON_URL . '/dist/' . getCacheBust()->name('js/acf-icon-field-initializer.js'),
+        [],
+        null,
+        true
+    );
 
+    wp_enqueue_script_module('acf-icon-field-initializer');
+}
 ?>

@@ -1,0 +1,3 @@
+interface SearchInterface {
+    init(): void;
+}

@@ -18,6 +18,8 @@ class Field extends \acf_field
             'dir' => plugin_dir_url(__FILE__),
         );
 
+        
+
         parent::__construct();
     }
 
@@ -25,23 +27,21 @@ class Field extends \acf_field
      * Render the field input
      */
     public function render_field($field) {
+        $id = uniqid('acf-icon-field-');
         ?>
-        <div class="acf-icon-search-wrapper">
+        <div class="acf-icon-search-wrapper" data-js-icon-field="<?php echo $id; ?>">
             <?php
             acf_text_input(
                 array(
+                    'id'          => $id,
                     'class'       => 'acf-icon-search-input',
                     'placeholder' => esc_html__( 'Search icons...', 'acf-icon-field' ),
                     'type'        => 'search',
+                    'onclick'     => 'getAcfIcons(this)',
                 )
             );
             ?>
-        </div>
-        <div
-            class="acf-icon-list"
-            role="radiogroup"
-        >
-            
+            <div class="acf-icon-list" role="radiogroup"></div>
         </div>
         <?php
     }
