@@ -12,7 +12,7 @@ class CacheBust
     public function name($name)
     {
         $jsonPath = ACFICON_PATH . apply_filters(
-            'LikePosts/Helper/CacheBust/RevManifestPath',
+            'AcfIconField/Helper/CacheBust/RevManifestPath',
             'dist/manifest.json'
         );
 
