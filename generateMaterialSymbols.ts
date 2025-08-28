@@ -41,12 +41,12 @@ const symbolNames = elements
 // Generate object code with type from material-symbols
 const objectName = 'MaterialSymbols';
 const objectMembers = symbolNames
-    .map(name => `  "${name}": "${name}"`)
+    .map(name => `  "${name}": "${name.replaceAll('_', ' ')}"`)
     .join(',\n');
 
 const objectCode = `import type { MaterialSymbol as OriginalMaterialSymbols } from 'material-symbols';\n\n` +
 `export const ${objectName}: Record<OriginalMaterialSymbols[number], string> = {\n${objectMembers}\n};\n\n` +
-`export type MaterialSymbol = keyof typeof ${objectName};\n`;
+`export type MaterialSymbolsInterface = typeof ${objectName};\n`;
 
 // Output file
 const outputPath = path.resolve(__dirname, 'source/js/materialSymbols.ts');
