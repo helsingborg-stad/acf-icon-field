@@ -2,8 +2,8 @@
     "scripts": {
         "test": "jest --coverage --maxWorkers=$(node -e \"console.log(Math.max(1, Math.floor(require('os').cpus().length / 2)))\")",
         "dev": "vite",
-        "build": "npm run generate-material-symbols-enum && vite build",
-        "generate-material-symbols-enum": "ts-node generateMaterialSymbols.ts",
+        "build": "vite build",
+        "generate-material-symbols": "ts-node generateMaterialSymbols.ts",
         "build:dev": "vite build --mode development",
         "watch": "vite build --watch --mode development"
     },
