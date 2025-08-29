@@ -1,0 +1,3 @@
+interface iconPreviewInterface {
+    init(): void;
+}

@@ -1,5 +1,48 @@
 .acf-field-icon {
-    .acf-icon-list {
+    .acf-icon-field__container {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .acf-icon-field__selected-preview {
+        height: 7rem;
+        width: 7rem;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+        border: 1px solid #8c8f94;
+        position: relative;
+    }
+
+    .acf-icon-field__preview-clear {
+        position: absolute;
+        top: -0.5px;
+        right: -0.5px;
+        cursor: pointer;
+        padding: .25rem;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        background-color: #b32d2e;
+    }
+
+    .acf-icon-field__preview-clear-icon {
+        font-size: 1rem;
+        color: white;
+    }
+
+    .acf-icon-field__preview-icon {
+        font-size: 3rem;
+    }
+
+    .acf-icon-field__search {
+        width: 100%;
+    }
+
+    .acf-icon-field__list {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;

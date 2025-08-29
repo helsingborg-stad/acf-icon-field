@@ -28,8 +28,11 @@ class Field extends \acf_field
 
         ?>
         <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
-            <div class="acf-icon-field__selected-preview">
-                hello
+            <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview">
+                <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
+                    <span data-material-symbol="delete" class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
+                </div>
+                <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview__icon"></div>
             </div>
             <div class="acf-icon-field__search">
                 <input 
@@ -50,7 +53,7 @@ class Field extends \acf_field
                     'data-js-acf-icon-field' => 'search-input'
                 ]);
                 ?>
-                <ul data-js-acf-icon-field="list" class="acf-icon-list" role="radiogroup"></ul>
+                <ul data-js-acf-icon-field="list" class="acf-icon-field__list" role="radiogroup"></ul>
             </div>
 
             <script>
