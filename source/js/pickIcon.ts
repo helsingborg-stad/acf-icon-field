@@ -11,11 +11,23 @@ class PickIcon implements PickIconInterface {
             if (!iconName) {
                 return;
             }
-
             
-            this.hiddenInput.value = iconName;
-            this.hiddenInput.dispatchEvent(new Event('change'));
+            if (this.hiddenInput.value === iconName) {
+                this.removeSelection();
+            } else {
+                this.setSelection(iconName);
+            }
         });
+    }
+
+    public setSelection(iconName: string): void {
+        this.hiddenInput.value = iconName;
+        this.hiddenInput.dispatchEvent(new Event('change'));
+    }
+
+    public removeSelection(): void {
+        this.hiddenInput.value = '';
+        this.hiddenInput.dispatchEvent(new Event('change'));
     }
 }
 
