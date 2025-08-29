@@ -45,7 +45,7 @@ const objectMembers = symbolNames
     .join(',\n');
 
 const objectCode = `import type { MaterialSymbol as OriginalMaterialSymbols } from 'material-symbols';\n\n` +
-`export const ${objectName}: Record<OriginalMaterialSymbols[number], string> = {\n${objectMembers}\n};\n\n` +
+`export const ${objectName}: Record<OriginalMaterialSymbols[number], string> = {\n${objectMembers}\n};\n\n` + `export type MaterialSymbolInterface = keyof typeof ${objectName};\n` +
 `export type MaterialSymbolsInterface = typeof ${objectName};\n`;
 
 // Output file

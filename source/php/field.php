@@ -1,66 +1,59 @@
 <?php
-
 namespace AcfIcon;
 
 class Field extends \acf_field
 {
-    public $name;
-    public $label;
-    public $category;
+    public $name = 'icon';
+    public $label = 'Icon';
+    public $category = 'basic';
+    public $defaults;
     public $settings;
 
     public function __construct() {
-        $this->name = 'icon';
-        $this->label = 'Icon';
-        $this->category = 'basic';
-        $this->settings = array(
+        $this->settings = [
             'path' => plugin_dir_path(__FILE__),
-            'dir' => plugin_dir_url(__FILE__),
-        );
-
+            'dir'  => plugin_dir_url(__FILE__),
+        ];
         
+        $this->defaults = array(
+            'default_value' => '',
+            'placeholder'   => '',
+        );
 
         parent::__construct();
     }
 
-    /**
-     * Render the field input
-     */
     public function render_field($field) {
         $id = uniqid('acf-icon-field-');
+
         ?>
-        <div class="acf-icon-search-wrapper" data-js-icon-field="<?php echo $id; ?>">
-            <?php
-            acf_text_input(
-                array(
-                    'id'          => $id,
+        <div class="acf-icon-field__container" id="<?php echo $id; ?>" onclick="getAcfIcons(this)" data-js-acf-icon-field="container">
+            <div class="acf-icon-field__selected-preview">
+                hello
+            </div>
+            <div class="acf-icon-field__search">
+                <input 
+                        type="hidden" 
+                        name="<?php echo esc_attr($field['name']); ?>" 
+                        value="<?php echo esc_attr($field['value']); ?>" 
+                        class="acf-icon-value-input"
+                        data-js-acf-icon-field="hidden-input"
+                    />
+                <?php
+
+                // 👇 helper search input (not saved, no name)
+                acf_text_input([
                     'class'       => 'acf-icon-search-input',
                     'placeholder' => esc_html__( 'Search icons...', 'acf-icon-field' ),
                     'type'        => 'search',
-                    'onclick'     => 'getAcfIcons(this)',
-                )
-            );
-            ?>
-            <div class="acf-icon-list" role="radiogroup"></div>
+                    'name'        => false,
+                    'data-js-acf-icon-field' => 'search-input'
+                ]);
+                ?>
+                <ul data-js-acf-icon-field="list" class="acf-icon-list" role="radiogroup"></ul>
+            </div>
         </div>
         <?php
-    }
-
-    /**
-     * Add custom field settings for latitude and longitude
-     */
-    public function render_field_settings($field) {
-        acf_render_field_setting($field, [
-            'label'        => __('Icon Library', 'acf-icon-field'),
-            'instructions' => __('Choose which icon library this field should use.', 'acf-icon-field'),
-            'type'         => 'select',
-            'name'         => 'library',
-            'choices'      => [
-                'material'    => 'Material Icons',
-                'dashicons'   => 'Dashicons',
-            ],
-            'default_value' => 'material',
-        ]);
     }
 }
 

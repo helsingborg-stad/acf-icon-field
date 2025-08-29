@@ -3733,4 +3733,5 @@ export const MaterialSymbols: Record<OriginalMaterialSymbols[number], string> = 
   "zoom_out_map": "zoom out map"
 };
 
+export type MaterialSymbolInterface = keyof typeof MaterialSymbols;
 export type MaterialSymbolsInterface = typeof MaterialSymbols;

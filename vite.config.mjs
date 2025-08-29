@@ -2,7 +2,7 @@ import { createViteConfig } from 'vite-config-factory'
 
 const entries = {
     'js/acf-icon-field-initializer': './source/js/acfIconFieldInitializer.ts',
-    'css/main-map': './source/sass/main.scss',
+    'css/acf-icon-field': './source/sass/acfIconField.scss',
 }
 
 export default createViteConfig(entries, {

@@ -1,0 +1,43 @@
+.acf-field-icon {
+    .acf-icon-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        background-color: #f9f9f9;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+        overflow-y: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        &:not(:empty) {
+            height: 10rem;
+            border: 1px solid #8c8f94;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            padding: 1rem;
+        }
+
+        &:after {
+            content: "";
+            flex: auto;
+        }
+    }
+
+    .acf-icon-field__list-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0 !important;
+        padding: .25rem;
+        border: solid 2px #f9f9f9;
+
+        &:hover,
+        &.is-selected {
+            border: solid 2px #0783be;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    }
+}

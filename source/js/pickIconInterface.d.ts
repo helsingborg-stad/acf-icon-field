@@ -1,0 +1,3 @@
+interface PickIconInterface {
+    init(): void;
+}

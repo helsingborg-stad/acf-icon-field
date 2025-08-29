@@ -60,5 +60,14 @@ function loadScriptsAndStyle() {
     );
 
     wp_enqueue_script_module('acf-icon-field-initializer');
+
+    wp_register_style(
+        'acf-icon-field',
+        ACFICON_URL . '/dist/' . getCacheBust()->name('css/acf-icon-field.css'),
+        [],
+        null
+    );
+
+    wp_enqueue_style('acf-icon-field');
 }
 ?>
