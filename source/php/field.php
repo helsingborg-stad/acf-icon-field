@@ -27,7 +27,7 @@ class Field extends \acf_field
         $id = uniqid('acf-icon-field-');
 
         ?>
-        <div class="acf-icon-field__container" id="<?php echo $id; ?>" onclick="getAcfIcons(this)" data-js-acf-icon-field="container">
+        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
             <div class="acf-icon-field__selected-preview">
                 hello
             </div>
