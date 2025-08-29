@@ -52,6 +52,12 @@ class Field extends \acf_field
                 ?>
                 <ul data-js-acf-icon-field="list" class="acf-icon-list" role="radiogroup"></ul>
             </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    getAcfIcons("<?php echo $id; ?>");
+                });
+            </script>
         </div>
         <?php
     }
