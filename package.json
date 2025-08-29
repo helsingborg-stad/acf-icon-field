@@ -47,7 +47,7 @@
             "@babel/plugin-proposal-class-properties"
         ]
     },
-    "version": "0.1.7",
+    "version": "0.1.9",
     "dependencies": {
         "material-symbols": "^0.34.1",
         "ts-morph": "^26.0.0",
