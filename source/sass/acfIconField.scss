@@ -5,9 +5,9 @@
         gap: 1rem;
     }
 
-    .acf-icon-field__selected-preview {
-        height: 7rem;
-        width: 7rem;
+    .acf-icon-field__selected-preview-container {
+        height: 8rem;
+        width: 8rem;
         aspect-ratio: 1 / 1;
         display: flex;
         align-items: center;
@@ -16,6 +16,12 @@
         background-color: #f9f9f9;
         border: 1px solid #8c8f94;
         position: relative;
+    }
+
+    .acf-icon-field__preview-icon-name {
+        word-break: break-all;
+        text-align: center;
+        font-size: .75rem;
     }
 
     .acf-icon-field__preview-clear {
@@ -32,6 +38,15 @@
     .acf-icon-field__preview-clear-icon {
         font-size: 1rem;
         color: white;
+    }
+
+    .acf-icon-field__selected-preview-icon {
+        display: flex;
+        padding: .5rem;
+        flex-direction: column;
+        gap: .5rem;
+        justify-content: center;
+        align-items: center;
     }
 
     .acf-icon-field__preview-icon {

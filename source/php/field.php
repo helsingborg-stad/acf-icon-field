@@ -29,10 +29,11 @@ class Field extends \acf_field
         ?>
         <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
             <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview">
+            <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview-container">
                 <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span data-material-symbol="delete" class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
                 </div>
-                <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview__icon"></div>
+                <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon"></div>
             </div>
             <div class="acf-icon-field__search">
                 <input 
