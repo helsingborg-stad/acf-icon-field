@@ -21,7 +21,8 @@ class AcfIconField implements AcfIconFieldInterface {
 
         const iconPreview = new IconPreview(
             this.previewIconContainer,
-            this.hiddenInput
+            this.hiddenInput,
+            this.previewClearButton
         );
 
         const listRenderer = new ListRenderer(
