@@ -72,6 +72,11 @@
 
     .acf-icon-field__search {
         width: 100%;
+
+        &.is-expanded .acf-icon-search-input {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 
     .acf-icon-field__list {

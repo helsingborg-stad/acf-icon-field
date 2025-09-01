@@ -12,7 +12,12 @@ class ListRenderer implements ListRendererInterface {
 
     public render(items: MaterialSymbolInterface[]): void {
         const html = items.map(item => this.getHtml(item)).join('');
+        this.setExpanded(items.length !== 0, this.container.parentElement as HTMLElement);
         this.container.innerHTML = html;
+    }
+
+    private setExpanded(expanded: boolean, container: HTMLElement): void {
+        container.classList.toggle('is-expanded', expanded);
     }
 
     private listenForSelectedIconChange(): void {
