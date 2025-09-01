@@ -23,7 +23,16 @@
     .acf-icon-field__preview-icon-name {
         word-break: break-all;
         text-align: center;
-        font-size: .75rem;
+        font-size: .7rem;
+    }
+
+    .acf-icon-field__preview-no-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #8c8f94;
+        font-size: .7rem;
     }
 
     .acf-icon-field__preview-clear {

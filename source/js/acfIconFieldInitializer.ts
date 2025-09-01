@@ -15,8 +15,9 @@ window.getAcfIcons = (id: string) => {
     const listContainer = container?.querySelector('[data-js-acf-icon-field="list"]') as HTMLUListElement;
     const previewIconContainer = container?.querySelector('[data-js-icon-field="preview-icon"]') as HTMLElement;
     const previewClearButton = container?.querySelector('[data-js-acf-icon-field="clear-button"]') as HTMLElement;
+    const noIconText = container?.querySelector('[data-js-acf-icon-field="no-icon"]') as HTMLElement;
 
-    if (!searchInput || !hiddenInput || !listContainer || !previewIconContainer || !previewClearButton) {
+    if (!searchInput || !hiddenInput || !listContainer || !previewIconContainer || !previewClearButton || !noIconText) {
         console.warn('One or more required elements not found within container:', container);
         return;
     }
@@ -26,7 +27,8 @@ window.getAcfIcons = (id: string) => {
             hiddenInput,
             listContainer,
             previewIconContainer,
-            previewClearButton
+            previewClearButton,
+            noIconText
         );
 
         initializedIconFields[id] = newField;

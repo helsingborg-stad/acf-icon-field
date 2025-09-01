@@ -10,7 +10,8 @@ class AcfIconField implements AcfIconFieldInterface {
         private hiddenInput: HTMLInputElement,
         private listContainer: HTMLElement,
         private previewIconContainer: HTMLElement,
-        private previewClearButton: HTMLElement
+        private previewClearButton: HTMLElement,
+        private noIconText: HTMLElement
     ) {}
 
     public init(): void {
@@ -22,7 +23,8 @@ class AcfIconField implements AcfIconFieldInterface {
         const iconPreview = new IconPreview(
             this.previewIconContainer,
             this.hiddenInput,
-            this.previewClearButton
+            this.previewClearButton,
+            this.noIconText
         );
 
         const listRenderer = new ListRenderer(

@@ -32,6 +32,7 @@ class Field extends \acf_field
                 <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span data-material-symbol="delete" class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
                 </div>
+                <span class="acf-icon-field__preview-no-icon" data-js-acf-icon-field="no-icon">No icon</span>
                 <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon"></div>
             </div>
             <div class="acf-icon-field__search">
@@ -47,7 +48,7 @@ class Field extends \acf_field
                 // 👇 helper search input (not saved, no name)
                 acf_text_input([
                     'class'       => 'acf-icon-search-input',
-                    'placeholder' => esc_html__( 'Search icons...', 'acf-icon-field' ),
+                    'placeholder' => __('Search icons...', 'acf-icon-field'),
                     'type'        => 'search',
                     'name'        => false,
                     'data-js-acf-icon-field' => 'search-input'

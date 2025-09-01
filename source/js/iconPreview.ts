@@ -2,7 +2,8 @@ class IconPreview implements iconPreviewInterface {
     constructor(
         private previewElement: HTMLElement,
         private hiddenInput: HTMLInputElement,
-        private clearButton: HTMLElement
+        private clearButton: HTMLElement,
+        private noIconText: HTMLElement
      ) {}
 
     init(): void {
@@ -21,11 +22,13 @@ class IconPreview implements iconPreviewInterface {
     private updatePreview(iconName: string|null): void {
         if (!iconName) {
             this.previewElement.innerHTML = '';
+            this.noIconText.style.display = 'block';
             this.clearButton.style.display = 'none';
             return;
         }
 
         this.clearButton.style.display = 'block';
+        this.noIconText.style.display = 'none';
         this.previewElement.innerHTML = this.getHtml(iconName);
     }
 
