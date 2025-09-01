@@ -33,7 +33,7 @@ class IconPreview implements iconPreviewInterface {
     }
 
     private getHtml(iconName: string): string {
-        return `<span data-material-symbol="${iconName}" class="acf-icon-field__preview-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">${iconName}</span>
+        return `<span class="acf-icon-field__preview-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">${iconName}</span>
         <span class="acf-icon-field__preview-icon-name">${iconName}</span>`;
     }
 }
