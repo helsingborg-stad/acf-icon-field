@@ -27,7 +27,7 @@ class IconPreview implements iconPreviewInterface {
             return;
         }
 
-        this.clearButton.style.display = 'block';
+        this.clearButton.style.display = 'flex';
         this.noIconText.style.display = 'none';
         this.previewElement.innerHTML = this.getHtml(iconName);
     }

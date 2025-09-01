@@ -41,9 +41,15 @@
         right: -0.5px;
         cursor: pointer;
         padding: .25rem;
-        border-top-right-radius: 6px;
-        border-bottom-left-radius: 6px;
+        border-top-right-radius: inherit;
+        border-bottom-left-radius: inherit;
         background-color: #b32d2e;
+        display: flex;
+        aspect-ratio: 1 / 1;
+        width: 18px;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: nowrap;
     }
 
     .acf-icon-field__preview-clear-icon {
