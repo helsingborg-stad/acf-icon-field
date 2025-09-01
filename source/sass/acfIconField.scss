@@ -1,4 +1,6 @@
 .acf-field-icon {
+    container-type: inline-size;
+    container-name: iconfield;
     .acf-icon-field__container {
         display: flex;
         width: 100%;
@@ -97,6 +99,16 @@
             border: solid 2px #0783be;
             border-radius: 6px;
             cursor: pointer;
+        }
+    }
+
+    @container iconfield (max-width: 500px) {
+        .acf-icon-field__container {
+            flex-direction: column;
+        }
+
+        .acf-icon-field__search {
+            width: 100%;
         }
     }
 }
