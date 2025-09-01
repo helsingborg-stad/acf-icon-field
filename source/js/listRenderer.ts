@@ -37,6 +37,10 @@ class ListRenderer implements ListRendererInterface {
         });
     }
 
+    public getContainer(): HTMLElement {
+        return this.container;
+    }
+
     private getHtml(name: MaterialSymbolInterface): string {
         return `<li class="acf-icon-field__list-item${this.currentSelectedIcon === name ? ' is-selected' : ''}" data-js-acf-icon-field-item="${name}"><span class="acf-icon-field__icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">${name}</span></li>`;
     }

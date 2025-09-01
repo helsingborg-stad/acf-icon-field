@@ -17,15 +17,18 @@ class Search implements SearchInterface {
             this.listRenderer.render(matches);
         });
 
-        this.input.addEventListener('blur', () => {
-            setTimeout(() => {
-                this.listRenderer.render([]);
-            }, 150);
-        });
-
+       
         this.input.addEventListener('focus', () => {
             const matches = this.search(this.input.value);
             this.listRenderer.render(matches);
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.input.contains(e.target as Node) &&
+                !this.listRenderer.getContainer().contains(e.target as Node)) {
+                this.listRenderer.render([]);
+            }
         });
     }
 
