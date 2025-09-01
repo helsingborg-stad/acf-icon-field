@@ -34,6 +34,7 @@ if(file_exists('package.json') && file_exists('package-lock.json')) {
 //Run build if package-lock.json is found
 if(file_exists('package-lock.json') && !file_exists('gulp.js')) {
     $buildCommands[] = 'npx --yes browserslist@latest --update-db';
+    $buildCommands[] = 'npm run generate-material-symbols';
     $buildCommands[] = 'npm run build';
 } elseif(file_exists('package-lock.json') && file_exists('gulp.js') && is_array($argv) && in_array('--allow-gulp', $argv)) {
     $buildCommands[] = 'gulp';
