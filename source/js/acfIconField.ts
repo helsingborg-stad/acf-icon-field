@@ -32,15 +32,16 @@ class AcfIconField implements AcfIconFieldInterface {
             this.hiddenInput
         );
 
-        iconPreview.init();
-        pickIcon.init();
-        listRenderer.init();
-
-        new Search(
+        const search = new Search(
             this.searchInput,
             listRenderer,
             MaterialSymbols
-        ).init();
+        );
+
+        iconPreview.init();
+        pickIcon.init();
+        listRenderer.init();
+        search.init();
     }
 }
 
