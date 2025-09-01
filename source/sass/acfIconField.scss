@@ -128,6 +128,11 @@
             flex-direction: column;
         }
 
+        .acf-icon-field__selected-preview-container {
+            width: unset;
+            aspect-ratio: unset;
+        }
+
         .acf-icon-field__search {
             width: 100%;
         }
