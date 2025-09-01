@@ -48,7 +48,7 @@ class Field extends \acf_field
                 // 👇 helper search input (not saved, no name)
                 acf_text_input([
                     'class'       => 'acf-icon-search-input',
-                    'placeholder' => __('Search icons...', 'acf-icon-field'),
+                    'placeholder' => __('Search for icons', 'acf-icon-field') . '...',
                     'type'        => 'search',
                     'name'        => false,
                     'data-js-acf-icon-field' => 'search-input'
