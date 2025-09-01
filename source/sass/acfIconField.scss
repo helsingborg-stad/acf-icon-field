@@ -80,6 +80,7 @@
         overflow-y: auto;
         margin-top: 0;
         margin-bottom: 0;
+        width: initial;
         
         &:not(:empty) {
             height: 10rem;
