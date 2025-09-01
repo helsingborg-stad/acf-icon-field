@@ -20,7 +20,6 @@ class Search implements SearchInterface {
 
     private search(query: string): string[] {
         if (Search.cachedMatches[query]) {
-            console.log(Search.cachedMatches[query]);
             return Search.cachedMatches[query];
         }
 
@@ -36,7 +35,6 @@ class Search implements SearchInterface {
         }
 
         Search.cachedMatches[query] = matches;
-        console.log(Search.cachedMatches[query]);
 
         return matches;
     }
