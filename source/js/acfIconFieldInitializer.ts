@@ -18,7 +18,7 @@ window.getAcfIcons = (id: string) => {
     const noIconText = container?.querySelector('[data-js-acf-icon-field="no-icon"]') as HTMLElement;
 
     if (!searchInput || !hiddenInput || !listContainer || !previewIconContainer || !previewClearButton || !noIconText) {
-        console.warn('One or more required elements not found within container:', container);
+        console.error('One or more required elements not found within container:', container);
         return;
     }
 
