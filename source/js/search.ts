@@ -16,6 +16,17 @@ class Search implements SearchInterface {
             const matches = this.search(target.value);
             this.listRenderer.render(matches);
         });
+
+        this.input.addEventListener('blur', () => {
+            setTimeout(() => {
+                this.listRenderer.render([]);
+            }, 150);
+        });
+
+        this.input.addEventListener('focus', () => {
+            const matches = this.search(this.input.value);
+            this.listRenderer.render(matches);
+        });
     }
 
     private search(query: string): string[] {

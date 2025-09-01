@@ -5,7 +5,7 @@ class PickIcon implements PickIconInterface {
     ) {}
 
     public init(): void {
-        this.listContainer.addEventListener('click', (e: Event) => {
+        this.listContainer.addEventListener('pointerdown', (e: Event) => {
             const target = (e.target as HTMLElement)?.closest('[data-js-acf-icon-field-item]');
             const iconName = target?.getAttribute('data-js-acf-icon-field-item');
             if (!iconName) {
