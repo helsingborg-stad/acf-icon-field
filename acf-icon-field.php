@@ -30,6 +30,9 @@ class Plugin
             require __DIR__ . '/vendor/autoload.php';
         }
 
+        // Load text domain for translations
+        add_action('init', [$this, 'loadTextDomain']);
+
         add_action('acf/include_field_types', [$this, 'addAcfIconField']);
 
         add_action('admin_enqueue_scripts', [$this, 'loadScriptsAndStyle'], 10);
@@ -45,6 +48,18 @@ class Plugin
         }
 
         return $cacheBust;
+    }
+
+    /**
+     * Load text domain for translations
+     */
+    public function loadTextDomain()
+    {
+        load_plugin_textdomain(
+            'acf-icon-field',
+            false,
+            dirname(plugin_basename(__FILE__)) . '/languages/'
+        );
     }
 
     public function addAcfIconField()
