@@ -13,6 +13,18 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 "X-Domain: acf-icon-field\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: source/php/field.php:32
+msgid "Remove Icon"
+msgstr ""
+
+#: source/php/field.php:35
+msgid "No icon"
+msgstr ""
+
+#: source/php/field.php:51
+msgid "Search for icons"
+msgstr ""

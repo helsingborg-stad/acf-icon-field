@@ -30,6 +30,9 @@ class Plugin
             require __DIR__ . '/vendor/autoload.php';
         }
 
+        // Load text domain for translations
+        add_action('init', [$this, 'loadTextDomain']);
+
         add_action('acf/include_field_types', [$this, 'addAcfIconField']);
 
         add_action('admin_enqueue_scripts', [$this, 'loadScriptsAndStyle'], 10);
@@ -45,6 +48,29 @@ class Plugin
         }
 
         return $cacheBust;
+    }
+
+    /**
+     * Load text domain for translations
+     */
+    public function loadTextDomain()
+    {
+        $domain  = 'acf-icon-field';
+        $langDir = 'languages';
+
+        if (strpos(__FILE__, WPMU_PLUGIN_DIR) === 0) {
+            $relPath = str_replace(WPMU_PLUGIN_DIR . '/', '', dirname(__FILE__)) . '/' . $langDir;
+            load_muplugin_textdomain(
+                $domain,
+                $relPath
+            );
+        } else {
+            load_plugin_textdomain(
+                $domain,
+                false,
+                dirname(plugin_basename(__FILE__)) . '/' . $langDir
+            );
+        }
     }
 
     public function addAcfIconField()

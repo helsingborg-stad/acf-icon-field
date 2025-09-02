@@ -32,7 +32,9 @@ class Field extends \acf_field
                 <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
                 </div>
-                <span class="acf-icon-field__preview-no-icon" data-js-acf-icon-field="no-icon">No icon</span>
+                <span class="acf-icon-field__preview-no-icon" data-js-acf-icon-field="no-icon">
+                    <?php _e('No icon', 'acf-icon-field'); ?>
+                </span>
                 <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon"></div>
             </div>
             <div class="acf-icon-field__search">
