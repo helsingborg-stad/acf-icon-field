@@ -33,6 +33,7 @@
         transform: translate(-50%, -50%);
         color: #8c8f94;
         font-size: .7rem;
+        white-space: nowrap;
     }
 
     .acf-icon-field__preview-clear {
@@ -121,6 +122,10 @@
             border-radius: 6px;
             cursor: pointer;
         }
+    }
+
+    .acf-icon-field__list-item + .acf-icon-field__list-item {
+        margin-top: 0;
     }
 
     @container iconfield (max-width: 500px) {
