@@ -57,7 +57,7 @@ class Plugin
      */
     public function loadScriptsAndStyle()
     {
-        wp_register_script_module(
+        wp_register_script(
             'acf-icon-field-initializer',
             ACFICON_URL . '/dist/' . $this->getCacheBust()->name('js/acf-icon-field-initializer.js'),
             [],
@@ -65,7 +65,7 @@ class Plugin
             true
         );
 
-        wp_enqueue_script_module('acf-icon-field-initializer');
+        wp_enqueue_script('acf-icon-field-initializer');
 
         wp_register_style(
             'acf-icon-field',

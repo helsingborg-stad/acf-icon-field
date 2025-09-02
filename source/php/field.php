@@ -27,7 +27,7 @@ class Field extends \acf_field
         $id = uniqid('acf-icon-field-');
 
         ?>
-        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
+        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container" data-field-id="<?php echo $id; ?>">
             <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview-container">
                 <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
@@ -59,9 +59,39 @@ class Field extends \acf_field
             </div>
 
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    getAcfIcons("<?php echo $id; ?>");
-                });
+                // Initialize the field immediately for Gutenberg compatibility
+                (function() {
+                    var fieldId = "<?php echo $id; ?>";
+                    
+                    function initializeField() {
+                        if (typeof getAcfIcons === 'function') {
+                            getAcfIcons(fieldId);
+                            return true;
+                        }
+                        return false;
+                    }
+                    
+                    // Try immediate initialization
+                    if (!initializeField()) {
+                        // If script not loaded yet, try multiple fallback approaches
+                        var attempts = 0;
+                        var maxAttempts = 50; // 5 seconds total
+                        
+                        var initInterval = setInterval(function() {
+                            attempts++;
+                            if (initializeField() || attempts >= maxAttempts) {
+                                clearInterval(initInterval);
+                            }
+                        }, 100);
+                        
+                        // Also try on DOMContentLoaded as final fallback
+                        document.addEventListener('DOMContentLoaded', function() {
+                            if (typeof getAcfIcons === 'function') {
+                                getAcfIcons(fieldId);
+                            }
+                        });
+                    }
+                })();
             </script>
         </div>
         <?php
