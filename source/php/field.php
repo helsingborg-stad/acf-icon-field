@@ -25,6 +25,8 @@ class Field extends \acf_field
 
     public function render_field($field) {
         $id = uniqid('acf-icon-field-');
+        $currentScreen = get_current_screen();
+        $isBlockEditor = !empty($currentScreen->is_block_editor) ? "1" : "0";
 
         ?>
         <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
@@ -59,11 +61,15 @@ class Field extends \acf_field
                 ?>
                 <ul data-js-acf-icon-field="list" class="acf-icon-field__list" role="radiogroup"></ul>
             </div>
-
+                
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
+                if (<?php echo $isBlockEditor ?>) {
                     getAcfIcons("<?php echo $id; ?>");
-                });
+                } else {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        getAcfIcons("<?php echo $id; ?>");
+                    });
+                }
             </script>
         </div>
         <?php
