@@ -55,11 +55,22 @@ class Plugin
      */
     public function loadTextDomain()
     {
-        load_plugin_textdomain(
-            'acf-icon-field',
-            false,
-            dirname(plugin_basename(__FILE__)) . '/languages/'
-        );
+        $domain  = 'acf-icon-field';
+        $langDir = 'languages';
+
+        if (strpos(__FILE__, WPMU_PLUGIN_DIR) === 0) {
+            $relPath = str_replace(WPMU_PLUGIN_DIR . '/', '', dirname(__FILE__)) . '/' . $langDir;
+            load_muplugin_textdomain(
+                $domain,
+                $relPath
+            );
+        } else {
+            load_plugin_textdomain(
+                $domain,
+                false,
+                dirname(plugin_basename(__FILE__)) . '/' . $langDir
+            );
+        }
     }
 
     public function addAcfIconField()
