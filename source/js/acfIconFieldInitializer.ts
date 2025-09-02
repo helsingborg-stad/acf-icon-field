@@ -2,13 +2,17 @@ import AcfIconField from './acfIconField';
 
 declare global {
     interface Window {
-        getAcfIcons: (id: string) => void;
+        getAcfIcons: (event: Event, id: string) => void;
     }
 }
 
 let initializedIconFields: { [key: string]: AcfIconFieldInterface } = {};
 
-window.getAcfIcons = (id: string) => {
+window.getAcfIcons = (event: Event, id: string) => {
+    if (initializedIconFields[id]) {
+        return;
+    }
+
     const container = document.querySelector(`#${id}`) as HTMLElement;
     const searchInput = container?.querySelector('[data-js-acf-icon-field="search-input"]') as HTMLInputElement;
     const hiddenInput = container?.querySelector('[data-js-acf-icon-field="hidden-input"]') as HTMLInputElement;
@@ -21,14 +25,14 @@ window.getAcfIcons = (id: string) => {
         console.error('One or more required elements not found within container:', container);
         return;
     }
-
         const newField = new AcfIconField(
             searchInput,
             hiddenInput,
             listContainer,
             previewIconContainer,
             previewClearButton,
-            noIconText
+            noIconText,
+            event
         );
 
         initializedIconFields[id] = newField;

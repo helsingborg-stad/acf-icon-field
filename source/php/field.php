@@ -27,15 +27,24 @@ class Field extends \acf_field
         $id = uniqid('acf-icon-field-');
 
         ?>
-        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container">
+        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container"    onclick="getAcfIcons(event, '<?php echo $id; ?>')">
             <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview-container">
-                <div role="button" class="acf-icon-field__preview-clear" type="button" data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
+                <div role="button" class="acf-icon-field__preview-clear" type="button" <?php if (empty($field['value'])) { echo('style="display: none;"'); } ?> data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
                 </div>
-                <span class="acf-icon-field__preview-no-icon" data-js-acf-icon-field="no-icon">
-                    <?php _e('No icon', 'acf-icon-field'); ?>
-                </span>
-                <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon"></div>
+                    <span class="acf-icon-field__preview-no-icon" <?php if (!empty($field['value'])) { echo('style="display: none;"'); } ?> data-js-acf-icon-field="no-icon">
+                        <?php _e('No icon', 'acf-icon-field'); ?>
+                    </span>
+                <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon">
+                <?php
+                    if (!empty($field['value'])) {
+                        ?> 
+                        <span class="acf-icon-field__preview-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined"><?php echo($field['value']) ?></span>
+                        <span class="acf-icon-field__preview-icon-name"><?php echo($field['value']) ?></span>
+                    <?php
+                    }
+                ?>
+                </div>
             </div>
             <div class="acf-icon-field__search">
                 <input 
@@ -59,12 +68,6 @@ class Field extends \acf_field
                 ?>
                 <ul data-js-acf-icon-field="list" class="acf-icon-field__list" role="radiogroup"></ul>
             </div>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    getAcfIcons("<?php echo $id; ?>");
-                });
-            </script>
         </div>
         <?php
     }

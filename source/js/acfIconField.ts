@@ -11,7 +11,8 @@ class AcfIconField implements AcfIconFieldInterface {
         private listContainer: HTMLElement,
         private previewIconContainer: HTMLElement,
         private previewClearButton: HTMLElement,
-        private noIconText: HTMLElement
+        private noIconText: HTMLElement,
+        private event: Event
     ) {}
 
     public init(): void {
@@ -42,6 +43,16 @@ class AcfIconField implements AcfIconFieldInterface {
         pickIcon.init();
         listRenderer.init();
         search.init();
+
+        this.handleAfterInit(pickIcon);
+    }
+
+    private handleAfterInit(pickIcon: PickIconInterface): void {
+        const target = this.event.target as HTMLElement;
+
+        if (target === this.previewClearButton || this.previewClearButton.contains(target)) {
+            pickIcon.removeSelection();
+        }
     }
 }
 
