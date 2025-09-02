@@ -123,6 +123,10 @@
         }
     }
 
+    .acf-icon-field__list-item + .acf-icon-field__list-item {
+        margin-top: 0 !important;
+    }
+
     @container iconfield (max-width: 500px) {
         .acf-icon-field__container {
             flex-direction: column;
