@@ -79,7 +79,7 @@
     }
 
     &.is-expanded .acf-icon-field__list {
-        max-height: 10rem; // same as your previous height
+        max-height: 10rem;
         padding: 1rem;
         border: 1px solid #8c8f94;
         border-top: none;
@@ -119,7 +119,6 @@
         margin-bottom: 0 !important;
         padding: .25rem;
         border: solid 2px #f9f9f9;
-        margin-top: 8px;
 
         &:hover,
         &.is-selected {
