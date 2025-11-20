@@ -13,6 +13,5 @@
         "psr-4": {
             "AcfIcon\\": "source/php/"
         }
-    },
-    "version": "0.2.43"
+    }
 }
