@@ -1,3 +1,0 @@
-interface AcfIconFieldInterface {
-    init(): void;
-}
