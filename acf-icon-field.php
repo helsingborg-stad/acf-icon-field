@@ -87,8 +87,7 @@ class Plugin
             'acf-icon-field-initializer',
             ACFICON_URL . '/dist/' . $this->getCacheBust()->name('js/acf-icon-field-initializer.js'),
             [],
-            null,
-            true
+            null
         );
 
         wp_enqueue_script_module('acf-icon-field-initializer');
