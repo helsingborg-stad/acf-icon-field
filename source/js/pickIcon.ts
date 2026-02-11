@@ -22,12 +22,12 @@ class PickIcon implements PickIconInterface {
 
     public setSelection(iconName: string): void {
         this.hiddenInput.value = iconName;
-        this.hiddenInput.dispatchEvent(new Event('change'));
+        this.hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
     public removeSelection(): void {
         this.hiddenInput.value = '';
-        this.hiddenInput.dispatchEvent(new Event('change'));
+        this.hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 }
 

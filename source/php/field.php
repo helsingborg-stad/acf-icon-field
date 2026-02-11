@@ -8,6 +8,7 @@ class Field extends \acf_field
     public $category = 'basic';
     public $defaults;
     public $settings;
+    public $supports;
 
     public function __construct() {
         $this->settings = [
@@ -20,6 +21,11 @@ class Field extends \acf_field
             'placeholder'   => '',
         );
 
+        $this->supports = [
+            'conditional_logic' => true,
+            'input' => true
+        ];
+
         parent::__construct();
     }
 
@@ -27,7 +33,7 @@ class Field extends \acf_field
         $id = uniqid('acf-icon-field-');
 
         ?>
-        <div class="acf-icon-field__container" id="<?php echo $id; ?>" data-js-acf-icon-field="container"    onclick="getAcfIcons(event, '<?php echo $id; ?>')">
+        <div class="acf-icon-field__container acf-input-wrap" id="<?php echo $id; ?>" data-js-acf-icon-field="container"    onclick="getAcfIcons(event, '<?php echo $id; ?>')">
             <div data-js-acf-icon-field="preview" class="acf-icon-field__selected-preview-container">
                 <div role="button" class="acf-icon-field__preview-clear" type="button" <?php if (empty($field['value'])) { echo('style="display: none;"'); } ?> data-js-acf-icon-field="clear-button" aria-label="<?php __('Remove Icon', 'acf-icon-field'); ?>">
                     <span class="acf-icon-field__preview-clear-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined">delete</span>
@@ -37,6 +43,7 @@ class Field extends \acf_field
                     </span>
                 <div data-js-icon-field="preview-icon" class="acf-icon-field__selected-preview-icon">
                 <?php
+
                     if (!empty($field['value'])) {
                         ?> 
                         <span class="acf-icon-field__preview-icon material-symbols material-symbols-rounded material-symbols-sharp material-symbols-outlined"><?php echo($field['value']) ?></span>
@@ -48,7 +55,7 @@ class Field extends \acf_field
             </div>
             <div class="acf-icon-field__search">
                 <input 
-                        type="hidden" 
+                        type="text" 
                         name="<?php echo esc_attr($field['name']); ?>" 
                         value="<?php echo esc_attr($field['value']); ?>" 
                         class="acf-icon-value-input"
@@ -72,5 +79,3 @@ class Field extends \acf_field
         <?php
     }
 }
-
-new Field();

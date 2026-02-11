@@ -15,6 +15,7 @@ class IconPreview implements iconPreviewInterface {
 
         this.clearButton.addEventListener('click', () => {
             this.hiddenInput.value = '';
+            this.hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
             this.updatePreview(null);
         });
     }

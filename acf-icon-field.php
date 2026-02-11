@@ -76,6 +76,7 @@ class Plugin
     public function addAcfIconField()
     {
         require_once ACFICON_PATH . 'source/php/field.php';
+        new Field();
     }
 
     /**
@@ -91,6 +92,13 @@ class Plugin
         );
 
         wp_enqueue_script_module('acf-icon-field-initializer');
+
+        wp_enqueue_script(
+            'acf-icon-conditionals',
+            ACFICON_URL . '/dist/' . $this->getCacheBust()->name('js/acf-icon-conditionals.js'),
+            ['acf-input'],
+            null
+        );
 
         wp_register_style(
             'acf-icon-field',
